@@ -1,0 +1,34 @@
+
+import 'package:flutter/material.dart';
+import 'package:meals/data/mock_data.dart';
+import 'package:meals/widgets/category_grid_item.dart';
+
+// Grid configuration constants
+const int kGridCrossAxisCount = 2;
+const double kGridChildAspectRatio = 3 / 2;
+const double kGridCrossAxisSpacing = 20.0;
+const double kGridMainAxisSpacing = 20.0;
+const double kGridPadding = 24.0;
+
+class CategoriesScreen extends StatelessWidget {
+  const CategoriesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Categories')),
+      body: GridView(
+        padding: const EdgeInsets.all(kGridPadding),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: kGridCrossAxisCount,
+          childAspectRatio: kGridChildAspectRatio,
+          crossAxisSpacing: kGridCrossAxisSpacing,
+          mainAxisSpacing: kGridMainAxisSpacing,
+        ),
+        children: [
+          ...extraCategories.map((category) => CategoryGridItem(category: category)),
+        ],
+      ),
+    );
+  }
+}
