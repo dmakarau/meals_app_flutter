@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:meals/data/mock_data.dart';
+import 'package:meals/screens/meals_screen.dart';
 import 'package:meals/widgets/category_grid_item.dart';
 
 // Grid configuration constants
@@ -12,6 +12,14 @@ const double kGridPadding = 24.0;
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
+
+  void _selectCategory(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => MealsScreen(title: 'Meals', meals: []),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +34,13 @@ class CategoriesScreen extends StatelessWidget {
           mainAxisSpacing: kGridMainAxisSpacing,
         ),
         children: [
-          ...extraCategories.map((category) => CategoryGridItem(category: category)),
+          ...extraCategories.map(
+            (category) => CategoryGridItem(
+              category: category,
+              onSelectCategory: () {
+                _selectCategory(context);
+              },),
+          ),
         ],
       ),
     );

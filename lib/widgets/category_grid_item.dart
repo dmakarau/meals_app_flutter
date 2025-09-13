@@ -14,17 +14,16 @@ class CategoryGridItem extends StatelessWidget {
   /// Creates a [CategoryGridItem] for the given [category].
   ///
   /// The [category.title] must not be null or empty.
-  CategoryGridItem({super.key, required this.category})
+  CategoryGridItem({super.key, required this.category, required this.onSelectCategory})
     : assert(category.title != '', 'Category title must not be null or empty.');
 
   final Category category;
+  final void Function()? onSelectCategory;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        // ...existing code...
-      },
+      onTap: onSelectCategory,
       splashColor: Theme.of(context).colorScheme.primary,
       borderRadius: BorderRadius.circular(_kBorderRadius),
       child: Container(
