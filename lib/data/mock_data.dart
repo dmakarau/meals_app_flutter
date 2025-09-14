@@ -57,13 +57,120 @@ const extraCategories = [
 
 const mockedMeals = [
   Meal(
+    id: 'm20',
+    categories: ['c12'], // Street Food
+    title: 'Falafel Wrap',
+    affordability: Affordability.affordable,
+    complexity: Complexity.simple,
+    imageUrl: 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=800&q=80', // Falafel Wrap (Unsplash)
+    duration: 15,
+    ingredients: [
+      '4 Falafel Balls',
+      '1 Flatbread',
+      'Lettuce',
+      'Tomato',
+      'Tahini Sauce',
+    ],
+    steps: [
+      'Warm the flatbread.',
+      'Add lettuce and tomato.',
+      'Place falafel balls on top.',
+      'Drizzle with tahini sauce and wrap.',
+    ],
+    isGlutenFree: false,
+    isVegan: true,
+    isVegetarian: true,
+    isLactoseFree: true,
+  ),
+  Meal(
+    id: 'm21',
+    categories: ['c13'], // Desserts
+    title: 'Chocolate Lava Cake',
+    affordability: Affordability.luxurious,
+    complexity: Complexity.challenging,
+    imageUrl: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80', // Chocolate Lava Cake (Unsplash)
+    duration: 30,
+    ingredients: [
+      '100g Dark Chocolate',
+      '50g Butter',
+      '2 Eggs',
+      '50g Sugar',
+      '30g Flour',
+    ],
+    steps: [
+      'Melt chocolate and butter.',
+      'Whisk eggs and sugar.',
+      'Combine with flour and chocolate mixture.',
+      'Bake until edges are set but center is gooey.',
+    ],
+    isGlutenFree: false,
+    isVegan: false,
+    isVegetarian: true,
+    isLactoseFree: false,
+  ),
+  Meal(
+    id: 'm22',
+    categories: ['c17'], // Soups & Stews
+    title: 'Classic Minestrone Soup',
+    affordability: Affordability.affordable,
+    complexity: Complexity.simple,
+    imageUrl: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80', // Minestrone Soup (Unsplash)
+    duration: 40,
+    ingredients: [
+      'Carrots',
+      'Celery',
+      'Onion',
+      'Tomatoes',
+      'Beans',
+      'Pasta',
+      'Vegetable Broth',
+    ],
+    steps: [
+      'Chop all vegetables.',
+      'Sauté onion, carrots, and celery.',
+      'Add tomatoes, broth, and beans.',
+      'Simmer and add pasta until cooked.',
+    ],
+    isGlutenFree: false,
+    isVegan: true,
+    isVegetarian: true,
+    isLactoseFree: true,
+  ),
+  Meal(
+    id: 'm23',
+    categories: ['c18'], // Latin American
+    title: 'Tacos al Pastor',
+    affordability: Affordability.affordable,
+    complexity: Complexity.challenging,
+    imageUrl: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=800&q=80', // Tacos al Pastor (Unsplash)
+    duration: 35,
+    ingredients: [
+      'Corn Tortillas',
+      'Pork',
+      'Pineapple',
+      'Onion',
+      'Cilantro',
+      'Adobo Sauce',
+    ],
+    steps: [
+      'Marinate pork in adobo sauce.',
+      'Grill pork and slice thinly.',
+      'Warm tortillas.',
+      'Assemble tacos with pork, pineapple, onion, and cilantro.',
+    ],
+    isGlutenFree: true,
+    isVegan: false,
+    isVegetarian: false,
+    isLactoseFree: true,
+  ),
+  Meal(
     id: 'm1',
     categories: ['c1', 'c11'], // Italian, Mediterranean
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+  imageUrl:
+    'https://upload.wikimedia.org/wikipedia/commons/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg', // valid
     duration: 20,
     ingredients: [
       '4 Tomatoes',
@@ -94,7 +201,7 @@ const mockedMeals = [
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/9/91/Toast_Hawaii_sandwich.jpg',
+      'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80', // Toast Hawaii (Unsplash)
     duration: 10,
     ingredients: [
       '1 Slice of White Bread',
@@ -114,41 +221,13 @@ const mockedMeals = [
     isLactoseFree: false,
   ),
   Meal(
-    id: 'm3',
-    categories: ['c3', 'c12'], // Hamburgers, Street Food
-    title: 'Classic Hamburger',
-    affordability: Affordability.pricey,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/0/0b/RedDot_Burger.jpg',
-    duration: 45,
-    ingredients: [
-      '300g Beef Patty',
-      '1 Burger Bun',
-      'Lettuce',
-      'Tomato',
-      'Onion',
-      'Ketchup',
-    ],
-    steps: [
-      'Shape ground beef into patties.',
-      'Grill or fry patties for 8 minutes.',
-      'Toast bun lightly.',
-      'Assemble burger with veggies and ketchup.',
-    ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: true,
-  ),
-  Meal(
     id: 'm4',
     categories: ['c4', 'c19'], // German, Festive Specials
     title: 'Wiener Schnitzel',
     affordability: Affordability.luxurious,
     complexity: Complexity.challenging,
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/7/72/Wiener-Schnitzel02.jpg',
+      'https://images.unsplash.com/photo-1599921841143-819065a55cc6?auto=format&fit=crop&w=800&q=80', // Wiener Schnitzel (Unsplash)
     duration: 60,
     ingredients: [
       '4 Veal Cutlets',
@@ -175,8 +254,8 @@ const mockedMeals = [
     title: 'Salad with Smoked Salmon',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/a/ac/Smoked_Salmon_Salad.jpg',
+     imageUrl:
+         'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80', // Smoked Salmon Salad (Unsplash)
     duration: 15,
     ingredients: [
       'Lettuce',
@@ -196,120 +275,13 @@ const mockedMeals = [
     isLactoseFree: true,
   ),
   Meal(
-    id: 'm6',
-    categories: ['c9', 'c13'], // French, Desserts
-    title: 'Delicious Orange Mousse',
-    affordability: Affordability.affordable,
-    complexity: Complexity.hard,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/c/cf/Orange_mousse.jpg',
-    duration: 240,
-    ingredients: [
-      'Gelatin Sheets',
-      'Orange Juice',
-      'Sugar',
-      'Cream',
-    ],
-    steps: [
-      'Soften gelatin in water.',
-      'Heat orange juice with sugar.',
-      'Mix with gelatin and cool.',
-      'Whip cream and fold into mixture.',
-      'Chill for 4 hours.',
-    ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
-  ),
-  Meal(
-    id: 'm7',
-    categories: ['c7', 'c13'], // Breakfast, Desserts
-    title: 'Pancakes',
-    affordability: Affordability.affordable,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/2/2c/Stack_of_pancakes.jpg',
-    duration: 20,
-    ingredients: [
-      '200g Flour',
-      '300ml Milk',
-      '2 Eggs',
-      '1 Teaspoon Baking Powder',
-      'Butter',
-      'Maple Syrup',
-    ],
-    steps: [
-      'Mix flour, eggs, milk, and baking powder.',
-      'Fry in butter on both sides.',
-      'Serve with maple syrup.',
-    ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
-  ),
-  Meal(
-    id: 'm8',
-    categories: ['c8', 'c6'], // Asian, Exotic
-    title: 'Creamy Indian Chicken Curry',
-    affordability: Affordability.pricey,
-    complexity: Complexity.challenging,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/3/37/Chicken_makhani.jpg',
-    duration: 35,
-    ingredients: [
-      'Chicken Breast',
-      'Onion',
-      'Garlic',
-      'Ginger',
-      'Spices',
-      'Cream',
-    ],
-    steps: [
-      'Fry onion, garlic, and ginger.',
-      'Add spices and chicken pieces.',
-      'Pour cream and simmer until cooked.',
-    ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: false,
-  ),
-  Meal(
-    id: 'm9',
-    categories: ['c9', 'c13'], // French, Desserts
-    title: 'Chocolate Souffle',
-    affordability: Affordability.pricey,
-    complexity: Complexity.hard,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/8/8e/Chocolate_Souffle.jpg',
-    duration: 45,
-    ingredients: [
-      '100g Dark Chocolate',
-      '3 Eggs',
-      '50g Sugar',
-      'Butter',
-    ],
-    steps: [
-      'Melt chocolate with butter.',
-      'Whip egg yolks with sugar.',
-      'Fold in egg whites.',
-      'Bake in ramekins.',
-    ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
-  ),
-  Meal(
     id: 'm10',
     categories: ['c10', 'c14', 'c5'], // Summer, Healthy, Light & Lovely
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/f/f8/Asparagus_Salad.jpg',
+      'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80', // Asparagus Salad (Unsplash)
     duration: 30,
     ingredients: [
       'Green Asparagus',
@@ -334,7 +306,7 @@ const mockedMeals = [
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/3/3e/Salmon_grill.jpg',
+      'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80', // Grilled Salmon (Unsplash)
     duration: 25,
     ingredients: [
       '2 Salmon Fillets',
@@ -354,65 +326,13 @@ const mockedMeals = [
     isLactoseFree: true,
   ),
   Meal(
-    id: 'm12',
-    categories: ['c1', 'c11', 'c14'], // Italian, Mediterranean, Healthy (Vegetarian)
-    title: 'Pizza Margherita',
-    affordability: Affordability.affordable,
-    complexity: Complexity.challenging,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/d/d3/Supreme_pizza.jpg',
-    duration: 40,
-    ingredients: [
-      'Pizza Dough',
-      'Tomato Sauce',
-      'Mozzarella Cheese',
-      'Basil Leaves',
-    ],
-    steps: [
-      'Prepare pizza dough.',
-      'Spread tomato sauce and cheese.',
-      'Bake in hot oven for 15 minutes.',
-      'Garnish with basil.',
-    ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
-  ),
-  Meal(
-    id: 'm13',
-    categories: ['c7', 'c9'], // Breakfast, French
-    title: 'French Omelette',
-    affordability: Affordability.affordable,
-    complexity: Complexity.simple,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/a/a8/French_Omelette.jpg',
-    duration: 10,
-    ingredients: [
-      '3 Eggs',
-      'Butter',
-      'Salt',
-      'Pepper',
-    ],
-    steps: [
-      'Whisk eggs with salt and pepper.',
-      'Melt butter in pan.',
-      'Cook eggs while stirring.',
-      'Fold omelette and serve.',
-    ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
-  ),
-  Meal(
     id: 'm14',
     categories: ['c5', 'c11', 'c10'], // Light & Lovely, Mediterranean, Summer
     title: 'Caesar Salad',
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/4/4b/Caesar_salad_%282%29.jpg',
+     imageUrl:
+         'https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=800&q=80', // Caesar Salad (Unsplash)
     duration: 20,
     ingredients: [
       'Romaine Lettuce',
@@ -429,33 +349,5 @@ const mockedMeals = [
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: false,
-  ),
-  Meal(
-    id: 'm15',
-    categories: ['c8', 'c6', 'c12'], // Asian, Exotic, Street Food
-    title: 'Pad Thai',
-    affordability: Affordability.pricey,
-    complexity: Complexity.challenging,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/4/4c/Pad_Thai.jpg',
-    duration: 30,
-    ingredients: [
-      'Rice Noodles',
-      'Shrimp or Chicken',
-      'Eggs',
-      'Bean Sprouts',
-      'Peanuts',
-      'Tamarind Paste',
-    ],
-    steps: [
-      'Soak noodles in warm water.',
-      'Fry meat and eggs.',
-      'Add noodles and tamarind sauce.',
-      'Stir in bean sprouts and peanuts.',
-    ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: true,
   ),
 ];

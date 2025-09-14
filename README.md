@@ -2,6 +2,15 @@
 
 A comprehensive Flutter application for browsing meal categories, exploring recipes, and managing favorites. This project initially follows the Udemy course "Flutter & Dart - The Complete Guide" as a foundation for learning Flutter development, with personal experimentation and additional features added along the way.
 
+## 📸 Screenshots
+
+<div align="center">
+  <img src="screenshots/categories_screen.png" alt="Categories Screen" width="300"/>
+  <img src="screenshots/meals_screen.png" alt="Mediterranean Meals Screen" width="300"/>
+</div>
+
+*Left: Categories grid with colorful meal categories | Right: Mediterranean meals listing*
+
 ## 📱 Features
 
 - **Browse Meal Categories**: View various meal categories in a responsive grid layout
@@ -75,6 +84,14 @@ flutter run
 - **flutter_lints**: ^5.0.0 - Code quality and linting rules
 - **flutter_test** - Testing framework
 
+## ✨ Key Features Implemented
+
+- **10 Diverse Meal Categories**: Mediterranean, Street Food, Desserts, Vegan & Healthy, BBQ & Grilled, Seafood, Soups & Stews, Latin American, Festive Specials, and Snacks & Appetizers
+- **Rich Recipe Database**: Over 20 carefully curated recipes with detailed ingredients and step-by-step instructions
+- **Dietary Information**: Each meal includes dietary tags (vegan, vegetarian, gluten-free, lactose-free)
+- **Affordability & Complexity Ratings**: Visual indicators for meal cost and cooking difficulty
+- **High-Quality Food Photography**: Curated images from Unsplash for appetizing visual presentation
+
 ## 📁 Project Structure
 
 ```
@@ -82,9 +99,15 @@ lib/
 ├── main.dart           # App entry point and theme configuration
 ├── categories.dart     # Categories grid screen
 ├── models/            # Data models (meals, categories)
+│   ├── category.dart   # Category model with id, title, color
+│   └── meals.dart      # Meal model with ingredients, steps, dietary info
 ├── screens/           # App screens (meal details, favorites, filters)
+│   └── meals_screen.dart # Meals listing screen for selected category
 ├── widgets/           # Reusable UI components
-└── data/             # Static data and dummy content
+│   └── meal_item.dart  # Individual meal item widget
+├── data/              # Static data and dummy content
+│   └── mock_data.dart  # Categories and meals mock data
+└── screenshots/       # App screenshots for documentation
 ```
 
 ## 🎓 Learning Objectives
@@ -102,10 +125,18 @@ This project demonstrates key Flutter concepts:
 ## 🔄 Navigation Flow
 
 ```
-Categories → Meal Details → Recipe Instructions
-    ↓              ↓
-Favorites ←→ Filter Screen
+Categories Screen → Mediterranean/Other Category → Meal Details → Recipe Instructions
+       ↓                                              ↓
+   Back to Categories ← ← ← ← ← ← ← ← ← ← ← ← ← ← Back Navigation
 ```
+
+**Current Implementation Status:**
+- ✅ Categories grid screen with 10 diverse categories
+- ✅ Category-to-meals navigation
+- ✅ Meals listing screen for selected categories
+- 🔄 Individual meal detail screens (in development)
+- 🔄 Favorites system (planned)
+- 🔄 Advanced filtering (planned)
 
 ## 📚 Course Reference
 
