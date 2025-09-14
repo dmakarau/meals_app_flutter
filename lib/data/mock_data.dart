@@ -58,7 +58,7 @@ const extraCategories = [
 const mockedMeals = [
   Meal(
     id: 'm1',
-    categories: ['c1', 'c2'],
+    categories: ['c1', 'c11'], // Italian, Mediterranean
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
@@ -89,7 +89,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm2',
-    categories: ['c2'],
+    categories: ['c2', 'c4', 'c20'], // Quick & Easy, German, Snacks
     title: 'Toast Hawaii',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
@@ -115,7 +115,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm3',
-    categories: ['c3'],
+    categories: ['c3', 'c12'], // Hamburgers, Street Food
     title: 'Classic Hamburger',
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
@@ -143,7 +143,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm4',
-    categories: ['c4'],
+    categories: ['c4', 'c19'], // German, Festive Specials
     title: 'Wiener Schnitzel',
     affordability: Affordability.luxurious,
     complexity: Complexity.challenging,
@@ -171,7 +171,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm5',
-    categories: ['c2', 'c5'],
+    categories: ['c5', 'c16', 'c14'], // Light & Lovely, Seafood, Healthy
     title: 'Salad with Smoked Salmon',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
@@ -197,7 +197,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm6',
-    categories: ['c6'],
+    categories: ['c9', 'c13'], // French, Desserts
     title: 'Delicious Orange Mousse',
     affordability: Affordability.affordable,
     complexity: Complexity.hard,
@@ -224,7 +224,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm7',
-    categories: ['c7'],
+    categories: ['c7', 'c13'], // Breakfast, Desserts
     title: 'Pancakes',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
@@ -251,7 +251,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm8',
-    categories: ['c8'],
+    categories: ['c8', 'c6'], // Asian, Exotic
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
@@ -278,7 +278,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm9',
-    categories: ['c9'],
+    categories: ['c9', 'c13'], // French, Desserts
     title: 'Chocolate Souffle',
     affordability: Affordability.pricey,
     complexity: Complexity.hard,
@@ -304,7 +304,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm10',
-    categories: ['c10'],
+    categories: ['c10', 'c14', 'c5'], // Summer, Healthy, Light & Lovely
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
@@ -329,7 +329,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm11',
-    categories: ['c1'],
+    categories: ['c16', 'c15', 'c11'], // Seafood, BBQ & Grilled, Mediterranean
     title: 'Grilled Salmon',
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
@@ -355,7 +355,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm12',
-    categories: ['c2', 'c3'],
+    categories: ['c1', 'c11', 'c14'], // Italian, Mediterranean, Healthy (Vegetarian)
     title: 'Pizza Margherita',
     affordability: Affordability.affordable,
     complexity: Complexity.challenging,
@@ -381,7 +381,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm13',
-    categories: ['c4'],
+    categories: ['c7', 'c9'], // Breakfast, French
     title: 'French Omelette',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
@@ -407,7 +407,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm14',
-    categories: ['c5'],
+    categories: ['c5', 'c11', 'c10'], // Light & Lovely, Mediterranean, Summer
     title: 'Caesar Salad',
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
@@ -432,7 +432,7 @@ const mockedMeals = [
   ),
   Meal(
     id: 'm15',
-    categories: ['c6'],
+    categories: ['c8', 'c6', 'c12'], // Asian, Exotic, Street Food
     title: 'Pad Thai',
     affordability: Affordability.pricey,
     complexity: Complexity.challenging,
