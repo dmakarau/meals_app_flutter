@@ -25,8 +25,9 @@ A comprehensive Flutter application for browsing meal categories, exploring reci
 The app follows standard Flutter architecture patterns with multiple screens and navigation flow:
 
 - **Entry Point**: `lib/main.dart` - MaterialApp setup with Material Design 3 theming
-- **Categories Screen**: `lib/categories.dart` - Grid layout for meal categories
-- **Recipe Screens**: Individual meal detail screens with instructions
+- **Categories Screen**: `lib/screens/categories_screen.dart` - Grid layout for meal categories
+- **Meals Screen**: `lib/screens/meals_screen.dart` - Lists meals for selected category
+- **Meal Details Screen**: `lib/screens/meals_details_screen.dart` - Individual meal details
 - **Favorites Management**: System for marking and viewing favorite meals
 - **Filter Screen**: Advanced filtering options for dietary preferences
 
@@ -79,6 +80,7 @@ flutter run
 ### Production Dependencies
 - **google_fonts**: ^6.3.1 - Lato font family integration
 - **cupertino_icons**: ^1.0.8 - iOS style icons
+- **transparent_image**: ^2.0.1 - Fade-in image loading effects
 
 ### Development Dependencies
 - **flutter_lints**: ^5.0.0 - Code quality and linting rules
@@ -96,18 +98,21 @@ flutter run
 
 ```
 lib/
-├── main.dart           # App entry point and theme configuration
-├── categories.dart     # Categories grid screen
-├── models/            # Data models (meals, categories)
-│   ├── category.dart   # Category model with id, title, color
-│   └── meals.dart      # Meal model with ingredients, steps, dietary info
-├── screens/           # App screens (meal details, favorites, filters)
-│   └── meals_screen.dart # Meals listing screen for selected category
-├── widgets/           # Reusable UI components
-│   └── meal_item.dart  # Individual meal item widget
-├── data/              # Static data and dummy content
-│   └── mock_data.dart  # Categories and meals mock data
-└── screenshots/       # App screenshots for documentation
+├── main.dart                    # App entry point and theme configuration
+├── models/                     # Data models (meals, categories)
+│   ├── category.dart           # Category model with id, title, color
+│   └── meals.dart              # Meal model with ingredients, steps, dietary info
+├── screens/                    # App screens
+│   ├── categories_screen.dart  # Categories grid screen
+│   ├── meals_screen.dart       # Meals listing screen for selected category
+│   └── meals_details_screen.dart # Individual meal detail screen
+├── widgets/                    # Reusable UI components
+│   ├── category_grid_item.dart # Category item widget
+│   ├── meal_item.dart          # Individual meal item widget with metadata
+│   └── meal_item_trait.dart    # Meal metadata trait widget
+├── data/                       # Static data and dummy content
+│   └── mock_data.dart          # Categories and meals mock data
+└── screenshots/                # App screenshots for documentation
 ```
 
 ## 🎓 Learning Objectives
@@ -125,16 +130,19 @@ This project demonstrates key Flutter concepts:
 ## 🔄 Navigation Flow
 
 ```
-Categories Screen → Mediterranean/Other Category → Meal Details → Recipe Instructions
-       ↓                                              ↓
-   Back to Categories ← ← ← ← ← ← ← ← ← ← ← ← ← ← Back Navigation
+Categories Screen → Selected Category → Meals List → Meal Details → Recipe Instructions
+       ↓                     ↓              ↓             ↓
+   Back to Categories ← ← ← ← ← ← ← ← ← ← ← ← ← ← ← ← Back Navigation
 ```
 
 **Current Implementation Status:**
 - ✅ Categories grid screen with 10 diverse categories
 - ✅ Category-to-meals navigation
-- ✅ Meals listing screen for selected categories
-- 🔄 Individual meal detail screens (in development)
+- ✅ Meals listing screen for selected categories with rich metadata display
+- ✅ Individual meal detail screens (basic implementation with image display)
+- ✅ Enhanced meal items with duration, complexity, and affordability indicators
+- ✅ Fade-in image loading with transparent image placeholders
+- 🔄 Detailed recipe instructions and ingredients (in development)
 - 🔄 Favorites system (planned)
 - 🔄 Advanced filtering (planned)
 
