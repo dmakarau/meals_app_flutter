@@ -1,6 +1,6 @@
 # Flutter Meals App
 
-A comprehensive Flutter application for browsing meal categories, exploring recipes, and managing favorites. This project initially follows the Udemy course "Flutter & Dart - The Complete Guide" as a foundation for learning Flutter development, with personal experimentation and additional features added along the way.
+A comprehensive Flutter application for browsing meal categories, exploring recipes, and managing favorites. Built with Material Design 3, this app demonstrates modern Flutter development patterns, navigation systems, and responsive UI design.
 
 ## 📸 Screenshots
 
@@ -115,17 +115,24 @@ lib/
 └── screenshots/                # App screenshots for documentation
 ```
 
-## 🎓 Learning Objectives
+## 🎯 Project Overview
 
-This project demonstrates key Flutter concepts:
+This project serves as a hands-on exploration of:
+- **Flutter Framework**: Modern declarative UI development with Material Design 3
+- **Navigation Patterns**: Multi-screen navigation with smooth transitions
+- **Responsive Design**: Grid layouts and adaptive UI components
+- **Custom Theming**: Dark theme implementation with Material Design principles
+- **Data Architecture**: Structured models and mock data management
+- **Modern Flutter APIs**: Latest widgets and development patterns
 
-- **Widget Composition**: Building complex UIs with Flutter widgets
-- **Navigation**: Implementing multi-screen navigation patterns
-- **State Management**: Managing app state across different screens
-- **Material Design**: Applying Material Design 3 principles
-- **Responsive Design**: Creating layouts that work on different screen sizes
-- **Custom Theming**: Implementing custom themes and color schemes
-- **Data Modeling**: Structuring and managing app data
+## 🏗 Key Technologies
+
+### **Flutter + Material Design 3**
+- **UI Framework**: Declarative widgets with Material Design 3 components
+- **Navigation**: Multi-screen routing with smooth transitions
+- **Theming**: Custom dark theme with orange color scheme
+- **Typography**: Google Fonts (Lato) integration
+- **Responsive Layouts**: Grid systems and adaptive components
 
 ## 🔄 Navigation Flow
 
@@ -146,21 +153,18 @@ Categories Screen → Selected Category → Meals List → Meal Details → Reci
 - 🔄 Favorites system (planned)
 - 🔄 Advanced filtering (planned)
 
-## 📚 Course Reference
-
-This project initially follows the Udemy course **"Flutter & Dart - The Complete Guide"** as a foundation for learning Flutter development. While the core structure and concepts are based on the course content, this implementation includes personal experimentation and additional features to enhance the learning experience.
-
-The implementation serves as hands-on practice for:
-- Flutter widget system
-- Navigation and routing
-- State management techniques
-- UI/UX best practices
-- Mobile app development patterns
-
 ## 🤝 Contributing
 
-This is a learning project that combines course materials with personal experimentation. Feel free to explore the code, suggest improvements, or use it as a reference for your own Flutter learning journey.
+Feel free to explore the code, suggest improvements, or use it as a reference for your Flutter development journey.
 
 ## 📄 License
 
-This project is created for educational purposes, initially following a Flutter learning course and enhanced with personal experimentation.
+This project is created for educational purposes.
+
+---
+
+## 📚 Course Attribution
+
+This project is developed as part of the **Udemy course "Flutter & Dart - The Complete Guide"**. The implementation follows the course curriculum while exploring advanced Flutter concepts and adding personal enhancements to deepen the learning experience.
+
+*This project is designed for educational purposes to explore Flutter development, navigation patterns, and modern mobile app architecture.*
