@@ -4,7 +4,7 @@ import 'package:meals/screens/meals_details_screen.dart';
 import 'package:meals/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
-  const MealsScreen({super.key, required this.title, required this.meals});
+  const MealsScreen({super.key, this.title, required this.meals});
 
    void _selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(
@@ -14,7 +14,7 @@ class MealsScreen extends StatelessWidget {
     );
   }
 
-  final String title;
+  final String? title;
   final List<Meal> meals;
 
   @override
@@ -47,8 +47,12 @@ class MealsScreen extends StatelessWidget {
         ),
       );
     }
+
+    if (title == null) {
+      return body;
+    }
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(title: Text(title!)),
       body: body,
     );
   }
