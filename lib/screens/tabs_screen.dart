@@ -24,7 +24,7 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  List<Meal> _availableMeals = [];
+  late List<Meal> _availableMeals;
 
   List<Meal> _filterMeals(Map<Filter, bool> filters) {
     return mockedMeals.where((meal) {
