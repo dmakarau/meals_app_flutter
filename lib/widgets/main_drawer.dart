@@ -57,7 +57,7 @@ class MainDrawer extends StatelessWidget {
             ),
             onTap: () => onSelectScreen('meals'),
           ),
-              ListTile(
+          ListTile(
             leading: Icon(
               Icons.settings,
               size: 26,
