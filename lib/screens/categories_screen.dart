@@ -13,12 +13,13 @@ const double kGridMainAxisSpacing = 20.0;
 const double kGridPadding = 24.0;
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key, required this.onToogleFavorite});
+  const CategoriesScreen({super.key, required this.onToogleFavorite, required this.availableMeals});
 
   final void Function(Meal meal) onToogleFavorite;
+  final List<Meal> availableMeals;
 
   void _selectCategory(BuildContext context, Category category) {
-    final filteredMeals = mockedMeals.where(
+    final filteredMeals = availableMeals.where(
       (meal) => meal.categories.contains(category.id),
     );
     Navigator.of(context).push(
