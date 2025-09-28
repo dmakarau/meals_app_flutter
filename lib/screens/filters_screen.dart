@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals/widgets/filterswitch_tile.dart';
-
-enum Filter { glutenFree, lactoseFree, vegetarian, vegan }
-
+import 'package:meals/models/filter.dart';
 class FiltersScreen extends StatefulWidget {
   const FiltersScreen({super.key, required this.currentFilter});
   final Map<Filter, bool> currentFilter;
