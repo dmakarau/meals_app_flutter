@@ -4,6 +4,7 @@ import 'package:meals/models/filter.dart';
 class FiltersScreen extends StatefulWidget {
   const FiltersScreen({super.key, required this.currentFilter});
   final Map<Filter, bool> currentFilter;
+  
   @override
   State<FiltersScreen> createState() {
     return _FiltersScreenState();
