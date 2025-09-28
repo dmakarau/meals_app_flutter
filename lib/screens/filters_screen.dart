@@ -33,7 +33,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
       appBar: AppBar(title: const Text('Your Filters')),
       body: PopScope(
         canPop: false,
-        onPopInvokedWithResult: (bool didPop, dynamic result) async {
+        onPopInvokedWithResult: (bool didPop, Object? result) async {
           if (didPop) return;
           Navigator.of(context).pop({
             Filter.glutenFree: _glutenFreeSet,
