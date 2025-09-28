@@ -85,10 +85,12 @@ class _TabsScreenState extends State<TabsScreen> {
       final result = await Navigator.of(context).push<Map<Filter, bool>>(
         MaterialPageRoute(builder: (context) => FiltersScreen(currentFilter: _selectedFilters)),
       );
-      setState(() {
-        _selectedFilters = Map<Filter, bool>.from(result ?? kInitialFilters);
-        _availableMeals = _filterMeals(_selectedFilters);
-      });
+      if (result != null) {
+        setState(() {
+          _selectedFilters = Map<Filter, bool>.from(result);
+          _availableMeals = _filterMeals(_selectedFilters);
+        });
+      }
     }
   }
 
