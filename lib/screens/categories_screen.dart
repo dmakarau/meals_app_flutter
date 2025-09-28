@@ -13,9 +13,9 @@ const double kGridMainAxisSpacing = 20.0;
 const double kGridPadding = 24.0;
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key, required this.onToogleFavorite, required this.availableMeals});
+  const CategoriesScreen({super.key, required this.onToggleFavorite, required this.availableMeals});
 
-  final void Function(Meal meal) onToogleFavorite;
+  final void Function(Meal meal) onToggleFavorite;
   final List<Meal> availableMeals;
 
   void _selectCategory(BuildContext context, Category category) {
@@ -27,7 +27,7 @@ class CategoriesScreen extends StatelessWidget {
         builder: (ctx) => MealsScreen(
           title: category.title,
           meals: filteredMeals.toList(),
-          onToogleFavorite: onToogleFavorite,
+          onToggleFavorite: onToggleFavorite,
         ),
       ),
     );

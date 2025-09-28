@@ -11,6 +11,11 @@ class FiltersScreen extends StatefulWidget {
 }
 
 class _FiltersScreenState extends State<FiltersScreen> {
+  var _glutenFreeSet = false;
+  var _lactoseFreeSet = false;
+  var _vegetarianSet = false;
+  var _veganSet = false;
+
   Map<Filter, bool> _getCurrentFilters() {
     return {
       Filter.glutenFree: _glutenFreeSet,
@@ -19,10 +24,6 @@ class _FiltersScreenState extends State<FiltersScreen> {
       Filter.vegan: _veganSet,
     };
   }
-  var _glutenFreeSet = false;
-  var _lactoseFreeSet = false;
-  var _vegetarianSet = false;
-  var _veganSet = false;
 
   @override
   void initState() {

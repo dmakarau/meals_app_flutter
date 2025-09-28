@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals/data/mock_data.dart';
+import 'package:meals/models/filter.dart';
 import 'package:meals/models/meals.dart';
 import 'package:meals/screens/categories_screen.dart';
 import 'package:meals/screens/filters_screen.dart';
@@ -58,7 +59,7 @@ class _TabsScreenState extends State<TabsScreen> {
     );
   }
 
-  void toogleMealFavoriteStatus(Meal meal) {
+  void toggleMealFavoriteStatus(Meal meal) {
     final isExisting = _favoriteMeals.contains(meal);
     if (isExisting) {
       setState(() {
@@ -97,7 +98,7 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     Widget activeTab = CategoriesScreen(
-      onToogleFavorite: toogleMealFavoriteStatus,
+      onToggleFavorite: toggleMealFavoriteStatus,
       availableMeals: _availableMeals,
     );
     String activeTabTitle = 'Categories';
@@ -105,7 +106,7 @@ class _TabsScreenState extends State<TabsScreen> {
     if (_selectedTabIndex == 1) {
       activeTab = MealsScreen(
         meals: _favoriteMeals,
-        onToogleFavorite: toogleMealFavoriteStatus,
+        onToggleFavorite: toggleMealFavoriteStatus,
       );
       activeTabTitle = 'Your Favorites';
     }
