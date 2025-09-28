@@ -17,7 +17,8 @@ A comprehensive Flutter application for browsing meal categories, exploring reci
 - **Recipe Details**: Read detailed cooking instructions for selected meals
 - **Favorites System**: Mark and manage favorite meals for easy access
 - **Navigation Tabs**: Switch seamlessly between all meals and favorites
-- **Advanced Filtering**: Apply filters such as vegan, gluten-free, and other dietary preferences
+- **Advanced Filtering**: Apply filters for vegan, vegetarian, gluten-free, and lactose-free dietary preferences
+- **Side Drawer Navigation**: Access filters and other options through a dedicated navigation drawer
 - **Multi-Screen Navigation**: Navigate through multiple interconnected screens
 
 ## 🏗️ Architecture
@@ -28,8 +29,10 @@ The app follows standard Flutter architecture patterns with multiple screens and
 - **Categories Screen**: `lib/screens/categories_screen.dart` - Grid layout for meal categories
 - **Meals Screen**: `lib/screens/meals_screen.dart` - Lists meals for selected category
 - **Meal Details Screen**: `lib/screens/meals_details_screen.dart` - Individual meal details
+- **Tabs Screen**: `lib/screens/tabs_screen.dart` - Main navigation with tabs and drawer integration
+- **Filters Screen**: `lib/screens/filters_screen.dart` - Advanced filtering for dietary preferences
 - **Favorites Management**: System for marking and viewing favorite meals
-- **Filter Screen**: Advanced filtering options for dietary preferences
+- **Side Drawer**: `lib/widgets/main_drawer.dart` - Navigation drawer with app sections
 
 ## 🎨 Design & UI
 
@@ -105,11 +108,15 @@ lib/
 ├── screens/                    # App screens
 │   ├── categories_screen.dart  # Categories grid screen
 │   ├── meals_screen.dart       # Meals listing screen for selected category
-│   └── meals_details_screen.dart # Individual meal detail screen
+│   ├── meals_details_screen.dart # Individual meal detail screen
+│   ├── tabs_screen.dart        # Main navigation with tabs and drawer
+│   └── filters_screen.dart     # Dietary filters configuration screen
 ├── widgets/                    # Reusable UI components
 │   ├── category_grid_item.dart # Category item widget
 │   ├── meal_item.dart          # Individual meal item widget with metadata
-│   └── meal_item_trait.dart    # Meal metadata trait widget
+│   ├── meal_item_trait.dart    # Meal metadata trait widget
+│   ├── main_drawer.dart        # Navigation drawer component
+│   └── filterswitch_tile.dart  # Filter toggle switch component
 ├── data/                       # Static data and dummy content
 │   └── mock_data.dart          # Categories and meals mock data
 └── screenshots/                # App screenshots for documentation
@@ -149,9 +156,10 @@ Categories Screen → Selected Category → Meals List → Meal Details → Reci
 - ✅ Individual meal detail screens (basic implementation with image display)
 - ✅ Enhanced meal items with duration, complexity, and affordability indicators
 - ✅ Fade-in image loading with transparent image placeholders
+- ✅ Side drawer navigation with app sections
+- ✅ Advanced filtering system (vegan, vegetarian, gluten-free, lactose-free)
+- ✅ Favorites system with tab-based navigation
 - 🔄 Detailed recipe instructions and ingredients (in development)
-- 🔄 Favorites system (planned)
-- 🔄 Advanced filtering (planned)
 
 ## 🤝 Contributing
 
