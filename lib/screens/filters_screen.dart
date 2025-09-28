@@ -13,6 +13,14 @@ class FiltersScreen extends StatefulWidget {
 }
 
 class _FiltersScreenState extends State<FiltersScreen> {
+  Map<Filter, bool> _getCurrentFilters() {
+    return {
+      Filter.glutenFree: _glutenFreeSet,
+      Filter.lactoseFree: _lactoseFreeSet,
+      Filter.vegetarian: _vegetarianSet,
+      Filter.vegan: _veganSet,
+    };
+  }
   var _glutenFreeSet = false;
   var _lactoseFreeSet = false;
   var _vegetarianSet = false;
@@ -35,12 +43,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         canPop: false,
         onPopInvokedWithResult: (bool didPop, Object? result) async {
           if (didPop) return;
-          Navigator.of(context).pop({
-            Filter.glutenFree: _glutenFreeSet,
-            Filter.lactoseFree: _lactoseFreeSet,
-            Filter.vegetarian: _vegetarianSet,
-            Filter.vegan: _veganSet,
-          });
+          Navigator.of(context).pop(_getCurrentFilters());
         },
         child: Column(
           children: [
