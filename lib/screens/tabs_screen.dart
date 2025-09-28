@@ -87,7 +87,7 @@ class _TabsScreenState extends State<TabsScreen> {
       );
       if (result != null) {
         setState(() {
-          _selectedFilters = Map<Filter, bool>.from(result);
+          _selectedFilters = result;
           _availableMeals = _filterMeals(_selectedFilters);
         });
       }
