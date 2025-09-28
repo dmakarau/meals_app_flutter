@@ -45,7 +45,7 @@ class _TabsScreenState extends State<TabsScreen> {
   }
   int _selectedTabIndex = 0;
   final List<Meal> _favoriteMeals = [];
-  Map<Filter, bool> _selectedFilters = kInitialFilters;
+  Map<Filter, bool> _selectedFilters = Map.from(kInitialFilters);
   
   @override
   void initState() {
