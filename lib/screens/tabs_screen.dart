@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meals/data/mock_data.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals/models/filter.dart';
 import 'package:meals/models/meals.dart';
+import 'package:meals/providers/meals_provider.dart';
 import 'package:meals/screens/categories_screen.dart';
 import 'package:meals/screens/filters_screen.dart';
 import 'package:meals/screens/meals_screen.dart';
@@ -14,20 +15,20 @@ const kInitialFilters = {
   Filter.vegan: false,
 };
 
-class TabsScreen extends StatefulWidget {
+class TabsScreen extends ConsumerStatefulWidget {
   const TabsScreen({super.key});
 
   @override
-  State<StatefulWidget> createState() {
+  ConsumerState<TabsScreen> createState() {
     return _TabsScreenState();
   }
 }
 
-class _TabsScreenState extends State<TabsScreen> {
-  late List<Meal> _availableMeals;
+class _TabsScreenState extends ConsumerState<TabsScreen> {
 
-  List<Meal> _filterMeals(Map<Filter, bool> filters) {
-    return mockedMeals.where((meal) {
+  List<Meal> _filterMeals(List<Meal> meals, Map<Filter, bool> filters) {
+
+    return meals.where((meal) {
       if (filters[Filter.glutenFree]! && !meal.isGlutenFree) {
         return false;
       }
@@ -46,12 +47,6 @@ class _TabsScreenState extends State<TabsScreen> {
   int _selectedTabIndex = 0;
   final List<Meal> _favoriteMeals = [];
   Map<Filter, bool> _selectedFilters = Map.from(kInitialFilters);
-  
-  @override
-  void initState() {
-    super.initState();
-    _availableMeals = _filterMeals(_selectedFilters);
-  }
 
   void showInfoMessage(String message) {
     ScaffoldMessenger.of(context).clearSnackBars();
@@ -90,7 +85,6 @@ class _TabsScreenState extends State<TabsScreen> {
       if (result != null) {
         setState(() {
           _selectedFilters = result;
-          _availableMeals = _filterMeals(_selectedFilters);
         });
       }
     }
@@ -98,9 +92,13 @@ class _TabsScreenState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
+  final meals = ref.watch(mealsProvider);
+
+    final availableMeals = _filterMeals(meals, _selectedFilters);
+
     Widget activeTab = CategoriesScreen(
       onToggleFavorite: toggleMealFavoriteStatus,
-      availableMeals: _availableMeals,
+      availableMeals: availableMeals,
     );
     String activeTabTitle = 'Categories';
 
