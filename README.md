@@ -23,9 +23,11 @@ A comprehensive Flutter application for browsing meal categories, exploring reci
 
 ## 🏗️ Architecture
 
-The app follows standard Flutter architecture patterns with multiple screens and navigation flow:
+The app follows modern Flutter architecture patterns with Riverpod state management:
 
-- **Entry Point**: `lib/main.dart` - MaterialApp setup with Material Design 3 theming
+- **Entry Point**: `lib/main.dart` - MaterialApp setup with Material Design 3 theming, wrapped in `ProviderScope`
+- **State Management**: Riverpod providers for reactive state management
+  - `lib/providers/meals_provider.dart` - Simple Provider for meals data
 - **Categories Screen**: `lib/screens/categories_screen.dart` - Grid layout for meal categories
 - **Meals Screen**: `lib/screens/meals_screen.dart` - Lists meals for selected category
 - **Meal Details Screen**: `lib/screens/meals_details_screen.dart` - Individual meal details
@@ -81,13 +83,14 @@ flutter run
 ## 📦 Dependencies
 
 ### Production Dependencies
+- **flutter_riverpod**: ^3.0.1 - State management with Riverpod
 - **google_fonts**: ^6.3.1 - Lato font family integration
 - **cupertino_icons**: ^1.0.8 - iOS style icons
 - **transparent_image**: ^2.0.1 - Fade-in image loading effects
 
 ### Development Dependencies
 - **flutter_lints**: ^5.0.0 - Code quality and linting rules
-- **flutter_test** - Testing framework
+- **test**: ^1.25.15 - Testing framework
 
 ## ✨ Key Features Implemented
 
@@ -101,25 +104,27 @@ flutter run
 
 ```
 lib/
-├── main.dart                    # App entry point and theme configuration
-├── models/                     # Data models (meals, categories)
-│   ├── category.dart           # Category model with id, title, color
-│   └── meals.dart              # Meal model with ingredients, steps, dietary info
-├── screens/                    # App screens
-│   ├── categories_screen.dart  # Categories grid screen
-│   ├── meals_screen.dart       # Meals listing screen for selected category
+├── main.dart                    # App entry point with ProviderScope wrapper
+├── providers/                   # Riverpod providers for state management
+│   └── meals_provider.dart      # Simple Provider for meals data
+├── models/                      # Data models (meals, categories)
+│   ├── category.dart            # Category model with id, title, color
+│   └── meals.dart               # Meal model with ingredients, steps, dietary info
+├── screens/                     # App screens
+│   ├── categories_screen.dart   # Categories grid screen
+│   ├── meals_screen.dart        # Meals listing screen for selected category
 │   ├── meals_details_screen.dart # Individual meal detail screen
-│   ├── tabs_screen.dart        # Main navigation with tabs and drawer
-│   └── filters_screen.dart     # Dietary filters configuration screen
-├── widgets/                    # Reusable UI components
-│   ├── category_grid_item.dart # Category item widget
-│   ├── meal_item.dart          # Individual meal item widget with metadata
-│   ├── meal_item_trait.dart    # Meal metadata trait widget
-│   ├── main_drawer.dart        # Navigation drawer component
-│   └── filterswitch_tile.dart  # Filter toggle switch component
-├── data/                       # Static data and dummy content
-│   └── mock_data.dart          # Categories and meals mock data
-└── screenshots/                # App screenshots for documentation
+│   ├── tabs_screen.dart         # Main navigation with tabs and drawer
+│   └── filters_screen.dart      # Dietary filters configuration screen
+├── widgets/                     # Reusable UI components
+│   ├── category_grid_item.dart  # Category item widget
+│   ├── meal_item.dart           # Individual meal item widget with metadata
+│   ├── meal_item_trait.dart     # Meal metadata trait widget
+│   ├── main_drawer.dart         # Navigation drawer component
+│   └── filterswitch_tile.dart   # Filter toggle switch component
+├── data/                        # Static data and dummy content
+│   └── mock_data.dart           # Categories and meals mock data
+└── screenshots/                 # App screenshots for documentation
 ```
 
 ## 🎯 Project Overview
@@ -136,6 +141,7 @@ This project serves as a hands-on exploration of:
 
 ### **Flutter + Material Design 3**
 - **UI Framework**: Declarative widgets with Material Design 3 components
+- **State Management**: Riverpod for reactive and efficient state management
 - **Navigation**: Multi-screen routing with smooth transitions
 - **Theming**: Custom dark theme with orange color scheme
 - **Typography**: Google Fonts (Lato) integration
