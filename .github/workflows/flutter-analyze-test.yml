@@ -20,10 +20,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        flutter-version: [ '3.32.7', '3.10.5' ]
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,7 +29,6 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          flutter-version: ${{ matrix.flutter-version }}
 
       - name: Cache pub packages and tool state
         uses: actions/cache@v4
@@ -41,9 +36,9 @@ jobs:
           path: |
             ~/.pub-cache
             .dart_tool
-          key: ${{ runner.os }}-pub-${{ matrix.flutter-version }}-${{ hashFiles('**/pubspec.lock') }}
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pub-${{ matrix.flutter-version }}-
+            ${{ runner.os }}-pub-
 
       - name: Install dependencies
         run: flutter pub get
@@ -54,10 +49,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: build
-    strategy:
-      matrix:
-        flutter-version: [ '3.32.7', '3.10.5' ]
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -67,7 +58,6 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          flutter-version: ${{ matrix.flutter-version }}
 
       - name: Cache pub packages and tool state
         uses: actions/cache@v4
@@ -75,9 +65,9 @@ jobs:
           path: |
             ~/.pub-cache
             .dart_tool
-          key: ${{ runner.os }}-pub-${{ matrix.flutter-version }}-${{ hashFiles('**/pubspec.lock') }}
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pub-${{ matrix.flutter-version }}-
+            ${{ runner.os }}-pub-
 
       - name: Install dependencies
         run: flutter pub get
