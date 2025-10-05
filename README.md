@@ -217,10 +217,14 @@ This project is developed as part of the **Udemy course "Flutter & Dart - The Co
 
 This repository uses a GitHub Actions workflow to run static analysis and tests.
 
-- Workflow file: `.github/workflows/flutter-analyze-test.yml`
-- Display name in Actions UI: "Flutter Analyze & Test"
-- Pinned Flutter version used in CI: `3.32.7` (bundled Dart 3.8.1)
-
-If you update your local Flutter version and need CI to match, update the `flutter-version` field in the workflow.
+- Workflow file: `.github/workflows/dart.yml`
+- Display name in Actions UI: "Dart"
+- Flutter version: Uses the `stable` channel (latest stable release)
+- Features:
+  - Automated static analysis with `flutter analyze`
+  - Test execution with `flutter test`
+  - Pub package caching for faster builds
+  - Runs on push to `main` branch and pull requests
+  - Manual workflow dispatch with custom branch selection
 
 ````
