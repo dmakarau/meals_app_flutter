@@ -36,7 +36,7 @@ class FilterSwitchTile extends StatelessWidget {
           if (states.contains(WidgetState.selected)) {
             return Theme.of(context).colorScheme.tertiary;
           }
-          return Theme.of(context).colorScheme.onSurface.withOpacity(0.5);
+          return Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5);
         },
       ),
       contentPadding: const EdgeInsets.only(left: 34, right: 22),
