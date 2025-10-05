@@ -29,6 +29,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          flutter-version: '3.32.7'
 
       - name: Cache pub packages and tool state
         uses: actions/cache@v4
@@ -58,6 +59,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+          flutter-version: '3.32.7'
 
       - name: Cache pub packages and tool state
         uses: actions/cache@v4

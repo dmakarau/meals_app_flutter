@@ -26,6 +26,35 @@ A comprehensive Flutter application for browsing meal categories, exploring reci
 The app follows modern Flutter architecture patterns with Riverpod state management:
 
 - **Entry Point**: `lib/main.dart` - MaterialApp setup with Material Design 3 theming, wrapped in `ProviderScope`
+````markdown
+# Flutter Meals App
+
+A comprehensive Flutter application for browsing meal categories, exploring recipes, and managing favorites. Built with Material Design 3, this app demonstrates modern Flutter development patterns, navigation systems, and responsive UI design.
+
+## 📸 Screenshots
+
+<div align="center">
+  <img src="screenshots/categories_screen.png" alt="Categories Screen" width="300"/>
+  <img src="screenshots/meals_screen.png" alt="Mediterranean Meals Screen" width="300"/>
+</div>
+
+*Left: Categories grid with colorful meal categories | Right: Mediterranean meals listing*
+
+## 📱 Features
+
+- **Browse Meal Categories**: View various meal categories in a responsive grid layout
+- **Recipe Details**: Read detailed cooking instructions for selected meals
+- **Favorites System**: Mark and manage favorite meals for easy access
+- **Navigation Tabs**: Switch seamlessly between all meals and favorites
+- **Advanced Filtering**: Apply filters for vegan, vegetarian, gluten-free, and lactose-free dietary preferences
+- **Side Drawer Navigation**: Access filters and other options through a dedicated navigation drawer
+- **Multi-Screen Navigation**: Navigate through multiple interconnected screens
+
+## 🏗️ Architecture
+
+The app follows modern Flutter architecture patterns with Riverpod state management:
+
+- **Entry Point**: `lib/main.dart` - MaterialApp setup with Material Design 3 theming, wrapped in `ProviderScope`
 - **State Management**: Riverpod providers for reactive state management
   - `lib/providers/meals_provider.dart` - Simple Provider for meals data
 - **Categories Screen**: `lib/screens/categories_screen.dart` - Grid layout for meal categories
@@ -182,3 +211,16 @@ This project is created for educational purposes.
 This project is developed as part of the **Udemy course "Flutter & Dart - The Complete Guide"**. The implementation follows the course curriculum while exploring advanced Flutter concepts and adding personal enhancements to deepen the learning experience.
 
 *This project is designed for educational purposes to explore Flutter development, navigation patterns, and modern mobile app architecture.*
+
+
+## Continuous Integration (CI)
+
+This repository uses a GitHub Actions workflow to run static analysis and tests.
+
+- Workflow file: `.github/workflows/flutter-analyze-test.yml`
+- Display name in Actions UI: "Flutter Analyze & Test"
+- Pinned Flutter version used in CI: `3.32.7` (bundled Dart 3.8.1)
+
+If you update your local Flutter version and need CI to match, update the `flutter-version` field in the workflow.
+
+````
