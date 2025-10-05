@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:meals/providers/feature_provider.dart';
+import 'package:meals/providers/filter_provider.dart';
 import 'package:meals/widgets/filterswitch_tile.dart';
 
 class FiltersScreen extends ConsumerStatefulWidget {
