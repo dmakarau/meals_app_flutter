@@ -28,6 +28,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          # If a branch is provided via workflow_dispatch inputs, check it out.
+          # Otherwise use the ref from the event (push/pr) which is the default.
           ref: ${{ github.event.inputs.branch != '' && github.event.inputs.branch || github.ref }}
 
       - uses: subosito/flutter-action@v2
