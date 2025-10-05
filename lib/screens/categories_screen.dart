@@ -12,45 +12,81 @@ const double kGridCrossAxisSpacing = 20.0;
 const double kGridMainAxisSpacing = 20.0;
 const double kGridPadding = 24.0;
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key, required this.availableMeals});
 
   final List<Meal> availableMeals;
 
+  @override
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
+}
+
+class _CategoriesScreenState extends State<CategoriesScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   void _selectCategory(BuildContext context, Category category) {
-    final filteredMeals = availableMeals.where(
+    final filteredMeals = widget.availableMeals.where(
       (meal) => meal.categories.contains(category.id),
     );
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (ctx) => MealsScreen(
-          title: category.title,
-          meals: filteredMeals.toList(),
-        ),
+        builder: (ctx) =>
+            MealsScreen(title: category.title, meals: filteredMeals.toList()),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-      padding: const EdgeInsets.all(kGridPadding),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: kGridCrossAxisCount,
-        childAspectRatio: kGridChildAspectRatio,
-        crossAxisSpacing: kGridCrossAxisSpacing,
-        mainAxisSpacing: kGridMainAxisSpacing,
-      ),
-      children: [
-        ...extraCategories.map(
-          (category) => CategoryGridItem(
-            category: category,
-            onSelectCategory: () {
-              _selectCategory(context, category);
-            },
-          ),
+    return AnimatedBuilder(
+      animation: _animationController,
+      child: GridView(
+        padding: const EdgeInsets.all(kGridPadding),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: kGridCrossAxisCount,
+          childAspectRatio: kGridChildAspectRatio,
+          crossAxisSpacing: kGridCrossAxisSpacing,
+          mainAxisSpacing: kGridMainAxisSpacing,
         ),
-      ],
+        children: [
+          ...extraCategories.map(
+            (category) => CategoryGridItem(
+              category: category,
+              onSelectCategory: () {
+                _selectCategory(context, category);
+              },
+            ),
+          ),
+        ],
+      ),
+      builder: (ctx, child) => SlideTransition(
+        position: Tween(begin: const Offset(0, 0.3), end: const Offset(0, 0))
+            .animate(
+              CurvedAnimation(
+                parent: _animationController,
+                curve: Curves.easeInOut,
+              ),
+            ),
+        child: child,
+      ),
     );
   }
 }
