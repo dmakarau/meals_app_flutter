@@ -8,6 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:meals/main.dart';
 
@@ -20,8 +21,9 @@ void main() {
   });
 
   testWidgets('App starts and displays tab screen', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const App());
+  // Build our app and trigger a frame. Wrap with ProviderScope so Riverpod
+  // providers can be resolved during widget tests.
+  await tester.pumpWidget(const ProviderScope(child: App()));
 
     // Verify that the app bar title displays Categories
     expect(find.widgetWithText(AppBar, 'Categories'), findsOneWidget);

@@ -31,7 +31,14 @@ class FilterSwitchTile extends StatelessWidget {
           color: Theme.of(context).colorScheme.onSurface,
         ),
       ),
-      activeColor: Theme.of(context).colorScheme.tertiary,
+      thumbColor: WidgetStateProperty.resolveWith<Color>(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return Theme.of(context).colorScheme.tertiary;
+          }
+          return Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5);
+        },
+      ),
       contentPadding: const EdgeInsets.only(left: 34, right: 22),
     );
   }
