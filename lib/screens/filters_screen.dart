@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meals/providers/feature_provider.dart';
 import 'package:meals/widgets/filterswitch_tile.dart';
-import 'package:meals/models/filter.dart';
-class FiltersScreen extends StatefulWidget {
-  const FiltersScreen({super.key, required this.currentFilter});
-  final Map<Filter, bool> currentFilter;
+
+class FiltersScreen extends ConsumerStatefulWidget {
+  const FiltersScreen({super.key});
   
   @override
-  State<FiltersScreen> createState() {
+  ConsumerState<FiltersScreen> createState() {
     return _FiltersScreenState();
   }
 }
 
-class _FiltersScreenState extends State<FiltersScreen> {
+class _FiltersScreenState extends ConsumerState<FiltersScreen> {
   var _glutenFreeSet = false;
   var _lactoseFreeSet = false;
   var _vegetarianSet = false;
@@ -29,10 +30,11 @@ class _FiltersScreenState extends State<FiltersScreen> {
   @override
   void initState() {
     super.initState();
-    _glutenFreeSet = widget.currentFilter[Filter.glutenFree]!;
-    _lactoseFreeSet = widget.currentFilter[Filter.lactoseFree]!;
-    _vegetarianSet = widget.currentFilter[Filter.vegetarian]!;
-    _veganSet = widget.currentFilter[Filter.vegan]!;
+    final activeFilters =ref.read(filterProvider);
+    _glutenFreeSet = activeFilters[Filter.glutenFree]!;
+    _lactoseFreeSet = activeFilters[Filter.lactoseFree]!;
+    _vegetarianSet = activeFilters[Filter.vegetarian]!;
+    _veganSet = activeFilters[Filter.vegan]!;
   }
 
   @override
@@ -40,10 +42,11 @@ class _FiltersScreenState extends State<FiltersScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Your Filters')),
       body: PopScope(
-        canPop: false,
+        // Allow the route to be popped by the system/back button.
+        canPop: true,
         onPopInvokedWithResult: (bool didPop, Object? result) async {
-          if (didPop) return;
-          Navigator.of(context).pop(_getCurrentFilters());
+          // Update provider state; let the pop happen naturally.
+          ref.read(filterProvider.notifier).setFilters(_getCurrentFilters());
         },
         child: Column(
           children: [
