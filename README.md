@@ -26,37 +26,10 @@ A comprehensive Flutter application for browsing meal categories, exploring reci
 The app follows modern Flutter architecture patterns with Riverpod state management:
 
 - **Entry Point**: `lib/main.dart` - MaterialApp setup with Material Design 3 theming, wrapped in `ProviderScope`
-````markdown
-# Flutter Meals App
-
-A comprehensive Flutter application for browsing meal categories, exploring recipes, and managing favorites. Built with Material Design 3, this app demonstrates modern Flutter development patterns, navigation systems, and responsive UI design.
-
-## 📸 Screenshots
-
-<div align="center">
-  <img src="screenshots/categories_screen.png" alt="Categories Screen" width="300"/>
-  <img src="screenshots/meals_screen.png" alt="Mediterranean Meals Screen" width="300"/>
-</div>
-
-*Left: Categories grid with colorful meal categories | Right: Mediterranean meals listing*
-
-## 📱 Features
-
-- **Browse Meal Categories**: View various meal categories in a responsive grid layout
-- **Recipe Details**: Read detailed cooking instructions for selected meals
-- **Favorites System**: Mark and manage favorite meals for easy access
-- **Navigation Tabs**: Switch seamlessly between all meals and favorites
-- **Advanced Filtering**: Apply filters for vegan, vegetarian, gluten-free, and lactose-free dietary preferences
-- **Side Drawer Navigation**: Access filters and other options through a dedicated navigation drawer
-- **Multi-Screen Navigation**: Navigate through multiple interconnected screens
-
-## 🏗️ Architecture
-
-The app follows modern Flutter architecture patterns with Riverpod state management:
-
-- **Entry Point**: `lib/main.dart` - MaterialApp setup with Material Design 3 theming, wrapped in `ProviderScope`
 - **State Management**: Riverpod providers for reactive state management
   - `lib/providers/meals_provider.dart` - Simple Provider for meals data
+  - `lib/providers/favorites_provider.dart` - NotifierProvider for managing favorite meals
+  - `lib/providers/filter_provider.dart` - NotifierProvider for dietary filters and derived filtered meals
 - **Categories Screen**: `lib/screens/categories_screen.dart` - Grid layout for meal categories
 - **Meals Screen**: `lib/screens/meals_screen.dart` - Lists meals for selected category
 - **Meal Details Screen**: `lib/screens/meals_details_screen.dart` - Individual meal details
@@ -135,7 +108,9 @@ flutter run
 lib/
 ├── main.dart                    # App entry point with ProviderScope wrapper
 ├── providers/                   # Riverpod providers for state management
-│   └── meals_provider.dart      # Simple Provider for meals data
+│   ├── meals_provider.dart      # Simple Provider for meals data
+│   ├── favorites_provider.dart  # NotifierProvider for favorites management
+│   └── filter_provider.dart     # NotifierProvider for dietary filters
 ├── models/                      # Data models (meals, categories)
 │   ├── category.dart            # Category model with id, title, color
 │   └── meals.dart               # Meal model with ingredients, steps, dietary info
